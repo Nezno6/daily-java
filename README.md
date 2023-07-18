@@ -1,2 +1,2 @@
 # daily
-Java 17 / Kotlin daily task
+Java 17 daily task

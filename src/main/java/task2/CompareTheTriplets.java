@@ -1,3 +1,5 @@
+// TASK: https://www.hackerrank.com/challenges/compare-the-triplets/problem?isFullScreen=true
+
 package task2;
 
 import java.util.Arrays;

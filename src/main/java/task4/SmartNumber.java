@@ -1,12 +1,11 @@
 package task4;
 
+import static java.lang.Math.sqrt;
+
 public class SmartNumber {
 
-    public String isSmartNumber(int number) {
-        int numberSqrt = (int) Math.sqrt(number);
-        if (numberSqrt * numberSqrt == number) {
-            return "YES";
-        }
-        return "NO";
+    public Boolean isSmartNumber(int number) {
+        int numberSqrt = (int) sqrt(number);
+        return numberSqrt * numberSqrt == number;
     }
 }

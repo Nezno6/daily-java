@@ -1,14 +1,18 @@
 package task4;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class SmartNumber {
 
         public String isSmartNumber(int number) {
-            int count = 1;
-            for (int i = 1; i <= number/2; i++) {
+            Set<Integer> divisors = new HashSet<>();
+            for (int i = 1; i <= Math.sqrt(number); i++) {
                 if (number%i==0){
-                    count++;
+                    divisors.add(i);
+                    divisors.add(number/i);
                 }
             }
-            return (count%2==0)?"NO":"YES";
+            return divisors.size()%2==1?"YES":"NO";
         }
     }

@@ -6,3 +6,4 @@ Java 17 daily task
 3. https://www.hackerrank.com/challenges/solve-me-first/problem?isFullScreen=true
 4. https://www.hackerrank.com/challenges/smart-number/problem?isFullScreen=true
 5. https://www.hackerrank.com/challenges/plus-minus/problem?isFullScreen=true
+6. https://www.hackerrank.com/challenges/birthday-cake-candles/problem?isFullScreen=true

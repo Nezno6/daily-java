@@ -6,6 +6,6 @@ public class SmartNumber {
 
     public Boolean isSmartNumber(int number) {
         int numberSqrt = (int) sqrt(number);
-        return numberSqrt * numberSqrt == number;
+        return number / (double) numberSqrt == numberSqrt;
     }
 }

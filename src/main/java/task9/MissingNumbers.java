@@ -3,6 +3,7 @@
 package task9;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 public class MissingNumbers {
     public List<Integer> getMissingNumbers(List<Integer> toCheckIfMissSomeNumbers, List<Integer> controlListOfNumbers) {
@@ -25,25 +26,27 @@ public class MissingNumbers {
 
         List<Integer> missingNumber = new ArrayList<>();
 
-        for (Map.Entry<Integer, Integer> keyValuePair : numbersToOccurrences.entrySet()) {
-            missingNumber = enterNumberIfAttendanceIsGreaterThanZero(keyValuePair,missingNumber);
+        Iterator<Entry<Integer, Integer>> newIterator = numbersToOccurrences.entrySet().iterator();
+
+        while (newIterator.hasNext()) {
+            Entry<Integer, Integer> currentEntry = newIterator.next();
+            missingNumber = enterNumberIfAttendanceIsGreaterThanZero(currentEntry, missingNumber);
         }
+
         Collections.sort(missingNumber);
         return missingNumber;
     }
 
-    List<Integer> enterNumberIfAttendanceIsGreaterThanZero(
-            Map.Entry<Integer, Integer> keyValuePair,
-            List<Integer> missingNumber) {
+    List<Integer> enterNumberIfAttendanceIsGreaterThanZero(Entry<Integer, Integer> currentEntry, List<Integer> missingNumber) {
 
-        if (keyValuePair.getValue() <= 0) {
+        if (currentEntry.getValue() <= 0) {
             return missingNumber;
         }
 
         List<Integer> copyOfMissingNumber = new ArrayList<>(missingNumber);
 
-        for (int i = 0; i < keyValuePair.getValue(); i++) {
-            copyOfMissingNumber.add(keyValuePair.getKey());
+        for (int i = 0; i < currentEntry.getValue(); i++) {
+            copyOfMissingNumber.add(currentEntry.getKey());
         }
 
         return copyOfMissingNumber;

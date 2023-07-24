@@ -9,3 +9,4 @@ Java 17 daily task
 6. https://www.hackerrank.com/challenges/birthday-cake-candles/problem?isFullScreen=true
 7. https://www.hackerrank.com/challenges/mini-max-sum/problem?isFullScreen=true
 8. https://www.hackerrank.com/challenges/cats-and-a-mouse/problem?isFullScreen=true
+9. https://www.hackerrank.com/challenges/missing-numbers/problem?isFullScreen=true

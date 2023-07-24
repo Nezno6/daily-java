@@ -25,14 +25,28 @@ public class MissingNumbers {
 
         List<Integer> missingNumber = new ArrayList<>();
 
-        for (Map.Entry<Integer, Integer> number : numbersToOccurrences.entrySet()) {
-            if (number.getValue() > 0) {
-                for (int i = 0; i < number.getValue(); i++) {
-                    missingNumber.add(number.getKey());
-                }
-            }
+        for (Map.Entry<Integer, Integer> keyValuePair : numbersToOccurrences.entrySet()) {
+            missingNumber = enterNumberIfAttendanceIsGreaterThanZero(keyValuePair,missingNumber);
         }
         Collections.sort(missingNumber);
         return missingNumber;
     }
+
+    List<Integer> enterNumberIfAttendanceIsGreaterThanZero(
+            Map.Entry<Integer, Integer> keyValuePair,
+            List<Integer> missingNumber) {
+
+        if (keyValuePair.getValue() <= 0) {
+            return missingNumber;
+        }
+
+        List<Integer> copyOfMissingNumber = new ArrayList<>(missingNumber);
+
+        for (int i = 0; i < keyValuePair.getValue(); i++) {
+            copyOfMissingNumber.add(keyValuePair.getKey());
+        }
+
+        return copyOfMissingNumber;
+    }
+
 }

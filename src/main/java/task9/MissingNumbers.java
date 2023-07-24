@@ -21,13 +21,11 @@ public class MissingNumbers {
                         )
                 );
 
-        toCheckIfMissSomeNumbers
-                .forEach(numberChecked -> {
-                            if (numbersToOccurrences.containsKey(numberChecked)) {
-                                numbersToOccurrences.put(numberChecked, numbersToOccurrences.get(numberChecked) - 1);
-                            }
-                        }
-                );
+        toCheckIfMissSomeNumbers.forEach(
+                numberChecked -> {
+                    numbersToOccurrences.merge(numberChecked, -1, Integer::sum);
+                }
+        );
 
         return numbersToOccurrences
                 .entrySet()

@@ -2,54 +2,44 @@
 
 package task9;
 
-import java.util.*;
-import java.util.Map.Entry;
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class MissingNumbers {
     public List<Integer> getMissingNumbers(List<Integer> toCheckIfMissSomeNumbers, List<Integer> controlListOfNumbers) {
 
-        HashMap<Integer, Integer> numbersToOccurrences = new HashMap<>();
+        HashMap<Integer, Integer> numbersToOccurrences = controlListOfNumbers
+                .stream()
+                .collect(Collectors
+                        .toMap(
+                                numberKey -> numberKey,
+                                numberValue -> 1,
+                                Integer::sum,
+                                HashMap::new
+                        )
+                );
 
-        for (Integer number : controlListOfNumbers) {
-            if (!numbersToOccurrences.containsKey(number)) {
-                numbersToOccurrences.put(number, 1);
-            } else {
-                numbersToOccurrences.put(number, numbersToOccurrences.get(number) + 1);
-            }
-        }
+        toCheckIfMissSomeNumbers
+                .forEach(numberChecked -> {
+                            if (numbersToOccurrences.containsKey(numberChecked)) {
+                                numbersToOccurrences.put(numberChecked, numbersToOccurrences.get(numberChecked) - 1);
+                            }
+                        }
+                );
 
-        for (Integer numberChecked : toCheckIfMissSomeNumbers) {
-            if (numbersToOccurrences.containsKey(numberChecked)) {
-                numbersToOccurrences.put(numberChecked, numbersToOccurrences.get(numberChecked) - 1);
-            }
-        }
-
-        List<Integer> missingNumber = new ArrayList<>();
-
-        Iterator<Entry<Integer, Integer>> newIterator = numbersToOccurrences.entrySet().iterator();
-
-        while (newIterator.hasNext()) {
-            Entry<Integer, Integer> currentEntry = newIterator.next();
-            missingNumber = enterNumberIfAttendanceIsGreaterThanZero(currentEntry, missingNumber);
-        }
-
-        Collections.sort(missingNumber);
-        return missingNumber;
+        return numbersToOccurrences
+                .entrySet()
+                .stream()
+                .filter(numberToOccurrence -> numberToOccurrence.getValue() > 0)
+                .flatMapToInt(
+                        numberToOccurrence -> IntStream
+                                .range(0, numberToOccurrence.getValue())
+                                .map(index -> numberToOccurrence.getKey())
+                )
+                .sorted()
+                .boxed()
+                .toList();
     }
-
-    List<Integer> enterNumberIfAttendanceIsGreaterThanZero(Entry<Integer, Integer> currentEntry, List<Integer> missingNumber) {
-
-        if (currentEntry.getValue() <= 0) {
-            return missingNumber;
-        }
-
-        List<Integer> copyOfMissingNumber = new ArrayList<>(missingNumber);
-
-        for (int i = 0; i < currentEntry.getValue(); i++) {
-            copyOfMissingNumber.add(currentEntry.getKey());
-        }
-
-        return copyOfMissingNumber;
-    }
-
 }

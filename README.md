@@ -11,3 +11,4 @@ Java 17 daily task
 8. https://www.hackerrank.com/challenges/cats-and-a-mouse/problem?isFullScreen=true
 9. https://www.hackerrank.com/challenges/missing-numbers/problem?isFullScreen=true
 10. https://www.hackerrank.com/challenges/kangaroo/problem?isFullScreen=true
+11. https://www.hackerrank.com/challenges/simple-array-sum/problem?isFullScreen=true

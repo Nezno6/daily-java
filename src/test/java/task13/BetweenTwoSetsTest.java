@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 public class BetweenTwoSetsTest {
     BetweenTwoSets betweenTwoSets = new BetweenTwoSets();
 
-    public static Stream<Arguments> dataForV2GetSizeOfSearchedSet() {
+    public static Stream<Arguments> dataForGetSizeOfSearchedSet() {
         return Stream.of(Arguments.of(List.of(2, 6, 3), List.of(24 * 10_000_000, 36 * 10_000_000, 12 * 100_000_000, 48 * 10_000_000), 72), Arguments.of(List.of(2, 4), List.of(16, 32, 96), 3));
     }
 
@@ -25,7 +25,7 @@ public class BetweenTwoSetsTest {
     }
 
     @ParameterizedTest
-    @MethodSource("dataForV2GetSizeOfSearchedSet")
+    @MethodSource("dataForGetSizeOfSearchedSet")
     void getSizeOfWantedSetV2Test(List<Integer> divisors, List<Integer> multiples, int expected) {
         int actual = betweenTwoSets.getSizeOfWantedSet(divisors, multiples);
         Assertions.assertEquals(expected, actual);

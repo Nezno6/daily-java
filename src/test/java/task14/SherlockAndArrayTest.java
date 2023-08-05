@@ -12,11 +12,6 @@ import java.util.stream.Stream;
 public class SherlockAndArrayTest {
     SherlockAndArray sherlockAndArray;
 
-    @BeforeEach
-    void initial() {
-        this.sherlockAndArray = new SherlockAndArray();
-    }
-
     public static Stream<Arguments> dataForBalancedSums() {
         return Stream.of(
                 Arguments.of(List.of(1, 2, 3), false),
@@ -25,20 +20,24 @@ public class SherlockAndArrayTest {
                 Arguments.of(List.of(2, 0, 0, 0), true),
                 Arguments.of(List.of(0, 0, 2, 0), true),
                 Arguments.of(List.of(1), true),
-                Arguments.of(List.of(1,0), true),
-                Arguments.of(List.of(1,1), false),
+                Arguments.of(List.of(1, 0), true),
+                Arguments.of(List.of(1, 1), false),
                 Arguments.of(List.of(5, 6, 8, 11), true),
-                Arguments.of(List.of(3,2,3), true)
+                Arguments.of(List.of(3, 2, 3), true)
         );
+    }
+
+    @BeforeEach
+    void initial() {
+        this.sherlockAndArray = new SherlockAndArray();
     }
 
     @ParameterizedTest
     @MethodSource("dataForBalancedSums")
-    void balancedSumsTest(List<Integer> numbers, boolean expected){
+    void balancedSumsTest(List<Integer> numbers, boolean expected) {
         boolean actual = sherlockAndArray.balancedSums(numbers);
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
-
 
 
 }

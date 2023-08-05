@@ -8,14 +8,13 @@ public class SherlockAndArray {
 
 
     public boolean balancedSums(List<Integer> numbers) {
-        for (int i = 0; i < numbers.size(); i++) {
-            int sumOfLeftSubList = numbers.subList(0, i).stream().reduce(Integer::sum).orElse(0);
-            int sumOfRightSubList = numbers.subList(i+1, numbers.size()).stream().reduce(Integer::sum).orElse(0);
-
-            if(sumOfLeftSubList==sumOfRightSubList){
+        int sumOfAllList = numbers.stream().reduce(Integer::sum).orElse(0);
+        int sum = 0;
+        for (Integer number : numbers) {
+            if ((2 * sum + number) == sumOfAllList) {
                 return true;
             }
-
+            sum += number;
         }
         return false;
     }

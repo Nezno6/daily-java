@@ -13,8 +13,6 @@ public class TimeConversion {
         DateFormat time12HourFormat = new SimpleDateFormat("hh:mm:ssa");
         DateFormat time24HourFormat = new SimpleDateFormat("HH:mm:ss");
         long date = time12HourFormat.parse(timeIn12Hour).getTime();
-        System.out.println(time12HourFormat.format(date));
-        System.out.println(time24HourFormat.format(date));
         return time24HourFormat.format(date);
     }
 }

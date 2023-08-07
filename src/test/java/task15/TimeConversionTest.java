@@ -17,7 +17,10 @@ public class TimeConversionTest {
         return Stream.of(
                 Arguments.of("12:01:00PM", "12:01:00"),
                 Arguments.of("12:01:00AM", "00:01:00"),
-                Arguments.of("07:05:45PM", "19:05:45")
+                Arguments.of("07:05:45PM", "19:05:45"),
+                Arguments.of("12:01:00 PM", "12:01:00"),
+                Arguments.of("12:01:00 AM", "00:01:00"),
+                Arguments.of("07:05:45 PM", "19:05:45")
         );
     }
 

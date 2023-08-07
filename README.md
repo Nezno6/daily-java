@@ -15,3 +15,4 @@ Java 17 daily task
 12. https://www.hackerrank.com/challenges/staircase/problem?isFullScreen=true
 13. https://www.hackerrank.com/challenges/between-two-sets/problem?isFullScreen=true
 14. https://www.hackerrank.com/challenges/sherlock-and-array/problem
+15. https://www.hackerrank.com/challenges/time-conversion/problem?isFullScreen=true

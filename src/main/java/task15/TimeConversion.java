@@ -9,9 +9,11 @@ import java.text.SimpleDateFormat;
 public class TimeConversion {
 
     public String timeConversionTo24HourFormat(String timeIn12Hour) throws ParseException {
-        DateFormat time12HourFormat = new SimpleDateFormat("hh:mm:ssaa");
+        DateFormat time12HourFormat = new SimpleDateFormat("hh:mm:ssa");
         DateFormat time24HourFormat = new SimpleDateFormat("HH:mm:ss");
         long date = time12HourFormat.parse(timeIn12Hour).getTime();
+        System.out.println(time12HourFormat.format(date));
+        System.out.println(time24HourFormat.format(date));
         return time24HourFormat.format(date);
     }
 }
